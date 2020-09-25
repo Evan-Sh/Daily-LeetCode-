@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [2, 3, 4, 5, 6], target = 5;
+        var twoSum = function (nums, target) {
+            let arr = [...nums]
+            let i = arr.length
+            while (i > 0) {
+                let last = arr.pop()
+                console.log(last)
+
+                if (arr.indexOf(target - last) !== -1)
+                    return [nums.indexOf(target - last), nums.indexOf(last)]
+                i--
+            }
+        }
+        console.log(twoSum(arr, target))
+    </script>
+</body>
+
+</html>
