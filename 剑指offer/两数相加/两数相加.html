@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var addTwoNumbers = function (l1, l2, r = {}) {
+            const res = r
+            while (r) {
+                r.val = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + (r.p || 0)
+                const p = parseInt(r.val / 10)
+                r.val %= 10, l1 = l1 ? l1.next : null, l2 = l2 ? l2.next : null
+                l1 || l2 || p ? (r.next = new ListNode(), r.next.p = p) : r.next = null
+                r = r.next
+            }
+            return res
+        };
+        console.log(addTwoNumbers());
+    </script>
+</body>
+
+</html>

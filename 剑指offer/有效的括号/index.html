@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const isValid = (s) => {
+            const matchMap = {
+                '{': '}',
+                '[': ']',
+                '(': ')'
+            };
+            const stack = [];
+            for (const c of s) {
+                if (matchMap[c]) {
+                    stack.push(c);
+                } else {
+                    if (stack.length == 0) {
+                        return false;
+                    }
+                    const top = stack[stack.length - 1];
+                    if (matchMap[top] == c) {
+                        stack.pop();
+                    } else {
+                        return false;
+                    }
+                }
+            }
+
+            return stack.length == 0;
+        };
+        console.log(isValid("()"))
+        console.log(isValid('[]'))
+
+    </script>
+</body>
+
+</html>
